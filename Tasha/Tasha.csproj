@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Datastructure\Datastructure.csproj" />
+    <ProjectReference Include="..\ODCache\ODCache.csproj" />
+    <ProjectReference Include="..\TashaInterfaces\TashaInterfaces.csproj" />
+    <ProjectReference Include="..\TMG.Emme\TMG.Emme.csproj" />
+    <ProjectReference Include="..\TMG.Estimation\TMG.Estimation.csproj" />
+    <ProjectReference Include="..\TMG.Functions\TMG.Functions.csproj" />
+    <ProjectReference Include="..\TMGInterfaces\TMGInterfaces.csproj" />
+    <ProjectReference Include="..\XTMFInterfaces\XTMFInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>
