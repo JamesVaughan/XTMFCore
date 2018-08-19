@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Datastructure\Datastructure.csproj" />
+    <ProjectReference Include="..\TMG.Functions\TMG.Functions.csproj" />
+    <ProjectReference Include="..\TMGInterfaces\TMGInterfaces.csproj" />
+    <ProjectReference Include="..\XTMFInterfaces\XTMFInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

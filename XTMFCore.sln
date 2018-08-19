@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMGInterfaces", "TMGInterfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMG.Functions", "TMG.Functions\TMG.Functions.csproj", "{36474689-17BA-44BF-BB3D-C8C7819F577A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMG.Frameworks", "TMG.Frameworks\TMG.Frameworks.csproj", "{EF348094-F178-4D7F-B18E-66C908BDC788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{36474689-17BA-44BF-BB3D-C8C7819F577A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36474689-17BA-44BF-BB3D-C8C7819F577A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36474689-17BA-44BF-BB3D-C8C7819F577A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF348094-F178-4D7F-B18E-66C908BDC788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF348094-F178-4D7F-B18E-66C908BDC788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF348094-F178-4D7F-B18E-66C908BDC788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF348094-F178-4D7F-B18E-66C908BDC788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{D3067DD6-C2CD-424F-8999-13B94810EB9A} = {FFA7FC68-6FAC-4089-B28F-E2DCF1195139}
 		{82FA7B4A-DD85-43DF-B242-6C1821B57327} = {FFA7FC68-6FAC-4089-B28F-E2DCF1195139}
 		{36474689-17BA-44BF-BB3D-C8C7819F577A} = {FFA7FC68-6FAC-4089-B28F-E2DCF1195139}
+		{EF348094-F178-4D7F-B18E-66C908BDC788} = {FFA7FC68-6FAC-4089-B28F-E2DCF1195139}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28F84809-2337-4AD9-8BB0-A18D2A1A7D4C}
