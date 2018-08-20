@@ -65,7 +65,16 @@ namespace TMG.Emme
         {
             if (!EmmeModeller.CheckResourceType<ModellerController>())
             {
-                error = "In '" + Name + "' the resource 'EmmeModeller' did not contain an Emme ModellerController!";
+                var ds = EmmeModeller.GetDataSource();
+                if (ds == null)
+                {
+                    Console.WriteLine("It looks like nothing is contained!");
+                }
+                else
+                {
+                    Console.WriteLine("Type Name: " + ds.GetType().AssemblyQualifiedName);
+                }
+                error = "In '" + Name + "' the resource 'EmmeModeller' did not contain an Emme ModellerController!\r\n";
                 return false;
             }
             return true;
