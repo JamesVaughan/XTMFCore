@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
@@ -933,22 +934,28 @@ namespace XTMF
                     LoadAssembly(baseAssembly);
                 }
             }
+
+            AssemblyLoadContext.Default.Resolving += (context, toLoad) =>
+            {
+                return Assembly.LoadFrom(Path.GetFullPath(Path.Combine(_ModuleDirectory, toLoad.Name + ".dll")));
+            };
+
             if (Directory.Exists(_ModuleDirectory))
             {
                 var files = Directory.GetFiles(_ModuleDirectory, "*.dll");
-                Parallel.For(0, files.Length,
-                    (int i) =>
-                    {
+                //Parallel.For(0, files.Length, (int i) =>
+                for(int i = 0; i < files.Length; i++)
+                {
                         try
                         {
-                            LoadAssembly((Assembly.Load(Path.GetFileNameWithoutExtension(files[i]))));
+                            LoadAssembly(Assembly.LoadFrom(files[i]));
                         }
                         catch (Exception e)
                         {
                             Console.WriteLine("Error when trying to load assembly '" + Path.GetFileNameWithoutExtension(files[i]) + "'");
                             Console.WriteLine(e.ToString());
                         }
-                    });
+                }//);
             }
         }
 

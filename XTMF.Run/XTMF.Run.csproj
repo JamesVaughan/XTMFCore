@@ -6,6 +6,10 @@
     <StartupObject>XTMF.Run.Program</StartupObject>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\Users\phibr\source\repos\XTMFCore\Build\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\XTMFInterfaces\XTMFInterfaces.csproj" />
     <ProjectReference Include="..\XTMF\XTMF.csproj" />
