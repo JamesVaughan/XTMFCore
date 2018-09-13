@@ -141,15 +141,14 @@ namespace TMG.Emme
             // Since the modules are always located in the ~/Modules subdirectory for XTMF,
             // we can just go in there to find the script
             var modulesDirectory = Path.Combine(programPath, "Modules");
-            // When EMME is installed it will link the .py to their python interpreter properly
-            string argumentString = AddQuotes(Path.Combine(modulesDirectory, "ModellerBridge.py"));
-
 
             // Setup up the new process
             Emme = new Process();
             ProcessStartInfo startInfo;
             if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
+                // When EMME is installed it will link the .py to their python interpreter properly
+                string argumentString = AddQuotes(Path.Combine(modulesDirectory, "ModellerBridge-Windows.py"));
                 string pinLocal = Guid.NewGuid().ToString();
                 string poutLocal = Guid.NewGuid().ToString();
                 _pipeFromEMME = new NamedPipeServerStream(pinLocal, PipeDirection.In);
@@ -168,10 +167,11 @@ namespace TMG.Emme
             }
             else
             {
+                string argumentString = AddQuotes(Path.Combine(modulesDirectory, "ModellerBridge-Linux.py"));
                 var pipeIn = Path.Combine(Environment.CurrentDirectory, Guid.NewGuid().ToString());
                 var pipeOut = Path.Combine(Environment.CurrentDirectory, Guid.NewGuid().ToString());
-                _pipeFromEMME = new NamedPipeServerStream(pipeIn, PipeDirection.In);
-                _pipeToEMME = new NamedPipeServerStream(pipeOut, PipeDirection.Out);
+                _pipeFromEMME = new NamedPipeServerStream(pipeIn, PipeDirection.In, 1);
+                _pipeToEMME = new NamedPipeServerStream(pipeOut, PipeDirection.Out, 1);
                 //The first argument that gets passed into the Bridge is the name of the Emme project file
                 argumentString += " " + AddQuotes(projectFile) + " " + userInitials + " " + (performanceAnalysis ? 1 : 0) + " \"" + pipeIn + "\"" + " \"" + pipeOut + "\"";
                 if (!String.IsNullOrWhiteSpace(databank))
